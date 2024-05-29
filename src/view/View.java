@@ -323,7 +323,7 @@ public class View extends JFrame {
         xacNhanPassmoiTxf.setBackground(new Color(18, 30, 49));
         xacNhanPassmoiTxf.setForeground(Color.WHITE);
         
-        backBtnChangePass.setText("<=");
+        backBtnChangePass.setText("<-");
         backBtnChangePass.setFont(new Font("Dialog", Font.BOLD, 14));
         backBtnChangePass.setForeground(new Color(0, 204, 204));
         backBtnChangePass.setBackground(new Color(51, 65, 75));
