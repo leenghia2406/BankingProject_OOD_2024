@@ -24,7 +24,6 @@ public class KhoiTaoVayController implements ActionListener {
 		if (src.equals("Xac Nhan Vay Btn")) {
 			ObserverKH kh = loginController.getCurrentKhachHang();
 			if (kh != null) {
-				String hotenNguoiVay = view.getHotenNguoiVayTxf().getText();
 				int soTienVay = Integer.parseInt(view.getSoTienVayTxf().getText());
 				String soThangVayString = view.getSoThangVayCombobox().getSelectedItem().toString();
 				String[] parts = soThangVayString.split(" ");
