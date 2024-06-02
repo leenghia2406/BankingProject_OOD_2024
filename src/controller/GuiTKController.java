@@ -42,7 +42,6 @@ public class GuiTKController implements ActionListener {
 	                JOptionPane.showMessageDialog(view, "Không thể gửi tiết kiệm. Vui lòng kiểm tra lại số tiền, số tháng gửi và mã PIN.");
 	            }
 			}
-
         }
     }
 }

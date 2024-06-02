@@ -237,10 +237,12 @@ public class KhachHang extends ObserverKH {
 		// kiểm tra mã PIN
 		if (this.account.kiemTraMaPIN(maPIN) && this.soCCCD.equalsIgnoreCase(soCCCD)) {
 			this.setVay(vay);
-			return nganHang.vayTien(maKH, vay);
+			return nganHang.vayTien(this.maKH, vay);
+		}else {
+			System.out.println("Mã PIN không hợp lệ");
+			return false;
 		}
-		System.out.println("Mã PIN không hợp lệ");
-		return false;
+
 	}
 
 	@Override

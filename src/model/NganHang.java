@@ -193,7 +193,7 @@ public class NganHang implements Subject {
 
 	public boolean vayTien(String maKH, VayNganHang vay) {
 		for(ObserverKH kH : this.dSKhachHang) {
-			if(maKH.equalsIgnoreCase(maKH)) {
+			if(kH.getMaKH().equalsIgnoreCase(maKH)) {
 				kH.setVay(vay);
 				return kH.getVay().thucHienVayTien(kH, vay);
 			}

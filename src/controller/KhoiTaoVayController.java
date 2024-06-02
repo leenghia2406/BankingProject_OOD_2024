@@ -38,8 +38,7 @@ public class KhoiTaoVayController implements ActionListener {
 				if (okCxl == JOptionPane.OK_OPTION) {
 					String maPin = new String(pf.getPassword());
 					int maPIN = Integer.parseInt(maPin);
-
-					if (kh.vayTien(vayNganHang, soCCCD, maPIN) == true) {
+					if (NganHang.getInstance().vayTien(kh.getMaKH(), vayNganHang) == true || kh.vayTien(vayNganHang, soCCCD, maPIN)) {
 						JOptionPane.showMessageDialog(view, "Khoản vay đã được khởi tạo thành công.");
 						kh.setVay(vayNganHang);
 					} else {

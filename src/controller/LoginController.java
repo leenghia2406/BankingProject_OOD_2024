@@ -34,8 +34,8 @@ public class LoginController implements ActionListener {
 	LocalDate ngaySinh1 = LocalDate.of(2004, 6, 24);
 	LocalDate ngaySinh2 = LocalDate.of(2004, 1, 1);
 	KhachHang khachHang1 = new KhachHang("KH01", "Le Trong Nghia", ngaySinh1, "Tây Hồ, Hà Nội",
-			"999999999", "01230123", "trongnghia@gmail.com", acc1);
-	KhachHang khachHang2 = new KhachHang("KH01", "Huynh Hoai Linh", ngaySinh2, "Thu Duc, TP.HCM",
+			"1234567", "01230123", "trongnghia@gmail.com", acc1);
+	KhachHang khachHang2 = new KhachHang("KH02", "Huynh Hoai Linh", ngaySinh2, "Thu Duc, TP.HCM",
 			"88888888", "223334444", "hoailinhgay@gmail.com", acc2);
 	ObserverKH currentKhachHang = null;
 	HoaDon hdDien1 = new HoaDonDien("DIEN01", "9999", 50.0);
@@ -63,10 +63,7 @@ public class LoginController implements ActionListener {
 	DichVu kplus2 = new KPlus(hdMangK2);
 	DichVu kplus3 = new KPlus(hdMangK3);
 	TocDo tdCao = new TocDoCao(net1);
-	GiaoDich chuyenTien = new ChuyenTien(0, null, null);
-	GuiTietKiem tk = new GuiTietKiem(0, 0, null);
-	VayNganHang vay = new VayNganHang(0, 0, null, null, null);
-	NganHang nganHang = new NganHang("Ngan Hang ABC", "24 Dang Thai Mai, Tay Ho, Ha Noi");
+	NganHang nganHang = NganHang.getInstance();
 	public LoginController(View view) {
 		this.view = view;
 		hdDien1.setSoTien(hdDien1.tinhTienHoaDon());
@@ -123,7 +120,8 @@ public class LoginController implements ActionListener {
             for (ObserverKH kh : nganHang.getdSKhachHang()) {
                 if (kh.getAccount().dangNhap(view.getAccTxf().getText(), view.getPassFld().getText())) {
                     loginSuccess = true;
-                    currentKhachHang = kh;
+                    setCurrentKhachHang(kh);
+//                    currentKhachHang = kh;
                     currentKhachHang.getAccount().setSoDu(5000000);
                     break;
                 }
@@ -139,7 +137,7 @@ public class LoginController implements ActionListener {
 	public ObserverKH getCurrentKhachHang() {
 		return currentKhachHang;
 	}
-	public void setCurrentKhachHang(KhachHang currentKhachHang) {
+	public void setCurrentKhachHang(ObserverKH currentKhachHang) {
 		this.currentKhachHang = currentKhachHang;
 	}
 	
