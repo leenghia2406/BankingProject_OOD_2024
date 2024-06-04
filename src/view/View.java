@@ -46,7 +46,7 @@ public class View extends JFrame {
 	ActionListener rutTKAc = new RutTKController(this, loginAc);
 	ActionListener khoiTaoVayAc = new KhoiTaoVayController(this, loginAc);
 	ActionListener thanhToanVayAc = new ThanhToanVayController(this, loginAc);
-	ImageIcon logo = new ImageIcon("C:\\Users\\TRONG NGHIA\\Downloads\\logo fit - Copy.png");
+	ImageIcon logo = new ImageIcon("./src/view/logo fit - Copy.png");
 	Image imglogo = logo.getImage().getScaledInstance(250, 250, Image.SCALE_SMOOTH);
     public View() {
         initComponents();
@@ -162,14 +162,15 @@ public class View extends JFrame {
         maPinGuiTKLbl = new javax.swing.JLabel();
         maPinGuiTKTxf = new javax.swing.JPasswordField();
         loginBtn = new javax.swing.JButton();
-        aboutBtn = new javax.swing.JButton();
+        logOutBtn = new javax.swing.JButton();
         
         // Login Button
         loginBtn.setActionCommand("Đăng Nhập");
         loginFrame.setSize(new java.awt.Dimension(600, 400));
-        loginFrame.setTitle("GAY BANK");
+        loginFrame.setTitle("IT BANK");
         this.setIconImage(imglogo);
         this.getContentPane().setBackground(new Color(51, 51, 55));
+        this.setTitle("IT BANK");
         accTxf.setBackground(new Color(18, 30, 49));
         accTxf.setForeground(Color.WHITE);
         passFld.setBackground(new Color(18, 30, 49));
@@ -226,11 +227,11 @@ public class View extends JFrame {
         chuyenTienBtn.setBackground(new Color(51, 65, 75));
         chuyenTienBtn.setForeground(new Color(0, 204, 204));
         
-        aboutBtn.setFont(new java.awt.Font("Dialog", Font.BOLD, 14));
-        aboutBtn.setText("Giới Thiệu");
-        aboutBtn.setActionCommand("About");
-        aboutBtn.setBackground(new Color(51, 65, 75));
-        aboutBtn.setForeground(new Color(0, 204, 204));
+        logOutBtn.setFont(new java.awt.Font("Dialog", Font.BOLD, 14));
+        logOutBtn.setText("Đăng Xuất");
+        logOutBtn.setActionCommand("Logout");
+        logOutBtn.setBackground(new Color(51, 65, 75));
+        logOutBtn.setForeground(new Color(0, 204, 204));
         
         javax.swing.GroupLayout loginFrameLayout = new javax.swing.GroupLayout(loginFrame.getContentPane());
         loginFrame.getContentPane().setLayout(loginFrameLayout);
@@ -247,7 +248,7 @@ public class View extends JFrame {
                         .addGroup(loginFrameLayout.createSequentialGroup()
                             .addComponent(hoaDonBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(119, 119, 119)
-                            .addComponent(aboutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)) // Thêm button aboutBtn vào đây
+                            .addComponent(logOutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)) // Thêm button aboutBtn vào đây
                         .addGroup(loginFrameLayout.createSequentialGroup()
                             .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -281,7 +282,7 @@ public class View extends JFrame {
                     .addGap(31, 31, 31)
                     .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(hoaDonBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(aboutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)) // Thêm button aboutBtn vào đây
+                        .addComponent(logOutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)) // Thêm button aboutBtn vào đây
                     .addGap(70, 70, 70))
                 
         );
@@ -1228,7 +1229,7 @@ public class View extends JFrame {
         chuyenTienBtn.addActionListener(showFrameAc);
         vaytienBtn.addActionListener(showFrameAc);
         tietKiemBtn.addActionListener(showFrameAc);
-        aboutBtn.addActionListener(showFrameAc);
+        logOutBtn.addActionListener(showFrameAc);
         backBtnChangePass.setActionCommand("Back Pass");
         backBtnChangePin.setActionCommand("Back Pin");
         backBtnChuyenTien.setActionCommand("Back Chuyen Tien");
@@ -2427,7 +2428,11 @@ public class View extends JFrame {
         vayTienFrame.setLocationRelativeTo(null);
         
     }//GEN-LAST:event_backBtnXnVayActionPerformed
-
+    public void showMainPane() {
+    	loginFrame.setVisible(false);
+    	this.setVisible(true);
+    	this.setLocationRelativeTo(null);
+    }
     public static void main(String args[]) {
         //</editor-fold>
 
@@ -2549,7 +2554,7 @@ public class View extends JFrame {
     private javax.swing.JButton xemTKBtn;
     private javax.swing.JLabel maPinGuiTKLbl;
     private javax.swing.JPasswordField maPinGuiTKTxf;
-    private javax.swing.JButton aboutBtn;
+    private javax.swing.JButton logOutBtn;
     // End of variables declaration//GEN-END:variables
 //    màu user label Color(51, 255, 153)
 }

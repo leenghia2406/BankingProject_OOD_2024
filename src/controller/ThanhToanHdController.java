@@ -61,16 +61,18 @@ public class ThanhToanHdController implements ActionListener {
 	            String maHoaDon = view.getNhapMaHdTxf().getText();
 	            HoaDon hoaDon = kh.timHoaDonTheoMa(maHoaDon); 
 	            if (hoaDon == null) {
-	                JOptionPane.showMessageDialog(view, "Không tìm thấy hóa đơn với mã: " + maHoaDon);
+	                JOptionPane.showMessageDialog(view, "Không tìm thấy hóa đơn với mã: " + maHoaDon, "Lỗi", JOptionPane.ERROR_MESSAGE);
 	            } else if (hoaDon.getTrangThaiThanhToan()) {
-	                JOptionPane.showMessageDialog(view, "Hóa đơn đã được thanh toán");
+	                JOptionPane.showMessageDialog(view, "Hóa đơn đã được thanh toán", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
 	            } else {
 	                if (hoaDon.thanhToanHoaDon(kh)) {
-	                    JOptionPane.showMessageDialog(view, "Thanh toán thành công hóa đơn. Thông tin hóa đơn:\n" + hoaDon.inHoaDon());
+	                    JOptionPane.showMessageDialog(view, "Thanh toán thành công hóa đơn. Thông tin hóa đơn:\n" + hoaDon.inHoaDon(), 
+	                    		"Thanh toán thành công", JOptionPane.INFORMATION_MESSAGE);
 	                    // Cập nhật trạng thái hóa đơn trong phần xem hóa đơn
 	                    hoaDon.setTrangThaiThanhToan(true);
 	                } else {
-	                    JOptionPane.showMessageDialog(view, "Không đủ tiền để thanh toán hóa đơn. Số tiền yêu cầu: " + hoaDon.getSoTien() + ", số tiền hiện có trong tài khoản: " + kh.getAccount().getSoDu());
+	                    JOptionPane.showMessageDialog(view, "Không đủ tiền để thanh toán hóa đơn. Số tiền yêu cầu: " + hoaDon.getSoTien() + ", số tiền hiện có trong tài khoản: " + kh.getAccount().getSoDu()
+	                    		, "Lỗi", JOptionPane.ERROR_MESSAGE);
 	                }
 	            }
 	        }

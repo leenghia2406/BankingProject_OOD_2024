@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.JobAttributes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
@@ -15,10 +16,12 @@ import view.View;
 public class ChuyenTienController implements ActionListener {
 	View view;
 	LoginController loginController;
+
 	public ChuyenTienController(View view, ActionListener loginCon) {
 		this.view = view;
 		this.loginController = (LoginController) loginCon;
 	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String src = e.getActionCommand();
@@ -36,19 +39,28 @@ public class ChuyenTienController implements ActionListener {
 							khachHangNhan = khachHang;
 						}
 					}
-					if (ct.chuyenTien(kh, khachHangNhan) == true) {
-						JOptionPane.showMessageDialog(view, "Chuyển thành công số tiền " + ct.getSoTien()
-								+ " đến tài khoản " + khachHangNhan.getAccount().getSoTaiKhoan() + "Số dư còn lại: "
-								+ kh.getAccount().getSoDu() + "\n" + "Lời nhắn: " + view.getLoiNhanTxf().getText());
-					} else {
-						JOptionPane.showMessageDialog(view, "Số tiền chuyển không hợp lệ");
+					if (khachHangNhan != null) {
+						if (ct.chuyenTien(kh, khachHangNhan) == true) {
+							JOptionPane.showMessageDialog(view, "Chuyển thành công số tiền " + ct.getSoTien()
+									+ " đến tài khoản " + khachHangNhan.getAccount().getSoTaiKhoan() + "Số dư còn lại: "
+									+ kh.getAccount().getSoDu() + "\n" + "Lời nhắn: " + view.getLoiNhanTxf().getText(),
+									"Thông báo", JOptionPane.INFORMATION_MESSAGE);
+						} else {
+							JOptionPane.showMessageDialog(view, "Số tiền chuyển không hợp lệ");
+						}
+					} else if (khachHangNhan == null) {
+						JOptionPane.showMessageDialog(view, "Không tìm thấy khách hàng với số tài khoản: "
+								+ view.getTkNguoiNhanTxf().getText() + "\nVui lòng kiểm tra lại", "Thông báo",
+								JOptionPane.ERROR_MESSAGE);
 					}
+
 				} else {
 					// mã pin sai
-					JOptionPane.showMessageDialog(view, "Mã PIN không chính xác. Vui lòng thử lại.");
+					JOptionPane.showMessageDialog(view, "Mã PIN không chính xác. Vui lòng thử lại.", "Thông báo",
+							JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		}
 	}
-	
+
 }

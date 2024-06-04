@@ -32,15 +32,15 @@ public class ChangePinController implements ActionListener {
 				if (kh.getAccount().kiemTraMaPIN(Integer.parseInt(maPinCu))) {
 					if (maPinMoi.equalsIgnoreCase(maPinXacNhan)) {
 						if (kh.getAccount().thayDoiMaPIN(Integer.parseInt(maPinCu), Integer.parseInt(maPinMoi))) {
-							JOptionPane.showMessageDialog(view, "Đổi mã PIN thành công");
+							JOptionPane.showMessageDialog(view, "Đổi mã PIN thành công", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
 						} else {
-							JOptionPane.showMessageDialog(view, "Không thể đổi mã PIN. Vui lòng thử lại.");
+							JOptionPane.showMessageDialog(view, "Không thể đổi mã PIN. Vui lòng thử lại.", "Lỗi", JOptionPane.ERROR_MESSAGE);
 						}
 					} else {
-						JOptionPane.showMessageDialog(view, "Xác nhận mã PIN không đúng");
+						JOptionPane.showMessageDialog(view, "Xác nhận mã PIN không đúng", "Thông báo", JOptionPane.ERROR_MESSAGE);
 					}
 				} else {
-					JOptionPane.showMessageDialog(view, "Mã PIN không đúng");
+					JOptionPane.showMessageDialog(view, "Mã PIN không đúng", "Thông báo", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		}

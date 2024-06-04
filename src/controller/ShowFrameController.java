@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+
 import model.*;
 import view.*;
 /**
@@ -48,7 +50,7 @@ public class ShowFrameController implements ActionListener{
         if (src.equals("Xem Sd")) {
 			ObserverKH kh = loginController.getCurrentKhachHang();
 			if (kh != null) {
-				JOptionPane.showMessageDialog(view, kh.getAccount().kiemTraSoDu(), "Kiểm tra số dư ", -1);
+				JOptionPane.showMessageDialog(view, kh.getAccount().kiemTraSoDu() +"đ", "Kiểm tra số dư ", -1);
 			}
 		}else if (src.equals("Hóa Đơn")) {
 			view.showHoaDonFrame();
@@ -71,28 +73,22 @@ public class ShowFrameController implements ActionListener{
 			if (kh != null && kh.getGuiTietKiem() != null) {
 				JOptionPane.showMessageDialog(view, "Lãi suất tiết kiệm hàng tháng: " + kh.getGuiTietKiem().getLaiSuatThang() + "%");
 			}else if (kh.getGuiTietKiem() == null) {
-				JOptionPane.showMessageDialog(view, "Bạn chưa có thông tin gửi tiết kiệm!");
+				JOptionPane.showMessageDialog(view, "Bạn chưa có thông tin gửi tiết kiệm!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
 			}
         }else if (src.equals("Gui TK Btn")) {
 			view.showGuiTK();
 		}else if (src.equals("Back Btn Gui TK")) {
 			view.backBtnGuiTK();
 		}else if (src.equals("Xem LS Vay Btn")) {
-			ObserverKH kh = loginController.getCurrentKhachHang();
-			if (kh != null && kh.getVay() != null) {
-				JOptionPane.showMessageDialog(view, "Lãi suất vay hàng năm: " + kh.getVay().getLaiSuatNam() + "%");
-			}else if (kh.getGuiTietKiem() == null) {
-				JOptionPane.showMessageDialog(view, "Bạn chưa có bất kì khoản vay nào!");
-			}
+				JOptionPane.showMessageDialog(view, "Lãi suất vay hàng năm: " + 6.49 + "%", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
         }else if (src.equals("Khoi Tao Vay Btn")) {
 			view.khoiTaoVayBtn();
-		}else if (src.equals("About")) {
-			JOptionPane.showMessageDialog(view, 
-					"Tên ngân hàng: GAY BANK \n"
-					+ "Ngày thành lập: 30/5/2005 \n"
-					+ "Chủ tịch HĐQT: Thomas Muller \n"
-					+ "Trụ sở chính: Werner-Heisenberg-Allee 25, 80939 München, Đức \n"
-					+ "Hotline: 0989999999", "About Us", -1);
+		}else if (src.equals("Logout")) {
+			int response = JOptionPane.showConfirmDialog(view, "Bạn có chắc muốn đăng xuất không ?", "Xác nhận",
+					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+			if (response == JOptionPane.YES_OPTION) {
+				view.showMainPane();;
+			}
 		}
     }
     

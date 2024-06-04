@@ -127,10 +127,11 @@ public class LoginController implements ActionListener {
                 }
             }
             if (loginSuccess) {
-                JOptionPane.showMessageDialog(view, "Đăng Nhập Thành Công", "Đăng Nhập", 1);
+                JOptionPane.showMessageDialog(view, "Đăng Nhập Thành Công!", "Đăng Nhập", JOptionPane.INFORMATION_MESSAGE);
                 view.showLoginFrame();
             } else {
-                JOptionPane.showMessageDialog(view, "Đăng Nhập Không Thành Công", "Đăng Nhập", 2);
+                JOptionPane.showMessageDialog(view, "Đăng Nhập Không Thành Công \nVui lòng kiểm tra lại tài khoản và mật khẩu!",
+                		"Đăng Nhập", JOptionPane.ERROR_MESSAGE);
             }
         }
     }

@@ -29,11 +29,11 @@ public class ChangePassController implements ActionListener{
 			if (kh != null) {
 				if (kh.getAccount().thayDoiMatKhau(view.getNhapPassTxf().getText(), view.getNhapPassmoiTxf().getText(),
 						view.getXacNhanPassmoiTxf().getText()) == true) {
-					JOptionPane.showMessageDialog(view, "Đổi mật khẩu thành công");
+					JOptionPane.showMessageDialog(view, "Đổi mật khẩu thành công", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
 				} else if (!kh.getAccount().getMatKhau().equals(view.getNhapPassTxf().getText())) {
-					JOptionPane.showMessageDialog(view, "Mật khẩu không đúng");
+					JOptionPane.showMessageDialog(view, "Mật khẩu không đúng", "Thông báo", JOptionPane.ERROR_MESSAGE);
 				} else if (!view.getNhapPassmoiTxf().getText().equals(view.getXacNhanPassmoiTxf().getText())) {
-					JOptionPane.showMessageDialog(view, "Mật khẩu xác nhận không đúng");
+					JOptionPane.showMessageDialog(view, "Mật khẩu xác nhận không đúng", "Thông báo", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		}

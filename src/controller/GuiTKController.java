@@ -36,10 +36,12 @@ public class GuiTKController implements ActionListener {
 	                JOptionPane.showMessageDialog(view, "Gửi tiết kiệm thành công. Số tiền gửi: " + soTienGui +
 	                		", số tháng gửi: " + soThangGui 
 	                		+", lãi suất: "+guiTietKiem.getLaiSuatThang() +"%" 
-	                		+", nội dung gửi: "+view.getNoiDungGuiTxf().getText());
+	                		+", nội dung gửi: "+view.getNoiDungGuiTxf().getText()
+	                		, "Thông báo", JOptionPane.INFORMATION_MESSAGE);
 	                kh.setGuiTietKiem(guiTietKiem);
 	            } else {
-	                JOptionPane.showMessageDialog(view, "Không thể gửi tiết kiệm. Vui lòng kiểm tra lại số tiền, số tháng gửi và mã PIN.");
+	                JOptionPane.showMessageDialog(view, "Không thể gửi tiết kiệm. Vui lòng kiểm tra lại số tiền, số tháng gửi và mã PIN."
+	                		,"Lỗi", JOptionPane.ERROR_MESSAGE);
 	            }
 			}
         }
