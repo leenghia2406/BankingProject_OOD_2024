@@ -939,7 +939,7 @@ public class View extends JFrame {
         guiTKButton.setBackground(new Color(51, 65, 75));
 
 
-        soThangGuiComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 tháng", "6 tháng", "12 tháng" }));
+        soThangGuiComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 tháng", "2 tháng","3 tháng", "5 tháng", "6 tháng", "9 tháng", "12 tháng", "13 tháng", "15 tháng", "18 tháng", "24 tháng", "36 tháng" }));
 
         noiDungGuiLbl.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         noiDungGuiLbl.setText("Nội dung: ");
@@ -1063,7 +1063,7 @@ public class View extends JFrame {
         xacNhanVayBtn.setForeground(new Color(0, 204, 204));
         xacNhanVayBtn.setBackground(new Color(51, 65, 75));
 
-        soThangVayCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 tháng", "6 tháng", "12 tháng" }));
+        soThangVayCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 năm", "2 năm","3 năm"}));
 
         noiDungVayLbl.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         noiDungVayLbl.setText("Nội dung:");

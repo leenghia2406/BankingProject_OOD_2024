@@ -69,18 +69,13 @@ public class ShowFrameController implements ActionListener{
 		}else if (src.equals("Thanh Toan Hd Btn")) {
 			view.showThanhToanHdFrame();
 		}else if (src.equals("Xem TK Btn")) { 
-			ObserverKH kh = loginController.getCurrentKhachHang();
-			if (kh != null && kh.getGuiTietKiem() != null) {
-				JOptionPane.showMessageDialog(view, "Lãi suất tiết kiệm hàng tháng: " + kh.getGuiTietKiem().getLaiSuatThang() + "%");
-			}else if (kh.getGuiTietKiem() == null) {
-				JOptionPane.showMessageDialog(view, "Bạn chưa có thông tin gửi tiết kiệm!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
-			}
+			JOptionPane.showMessageDialog(view, "Lãi suất gửi tiết kiệm hàng tháng: \n" + khachHang1.xemLaiSuat(), "Thông báo", JOptionPane.INFORMATION_MESSAGE);
         }else if (src.equals("Gui TK Btn")) {
 			view.showGuiTK();
 		}else if (src.equals("Back Btn Gui TK")) {
 			view.backBtnGuiTK();
 		}else if (src.equals("Xem LS Vay Btn")) {
-				JOptionPane.showMessageDialog(view, "Lãi suất vay hàng năm: " + 6.49 + "%", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(view, "Lãi suất vay hàng năm: " + khachHang1.xemLaiSuatVayTien(), "Thông báo", JOptionPane.INFORMATION_MESSAGE);
         }else if (src.equals("Khoi Tao Vay Btn")) {
 			view.khoiTaoVayBtn();
 		}else if (src.equals("Logout")) {
