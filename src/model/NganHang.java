@@ -39,7 +39,7 @@ public class NganHang implements Subject {
 		}
 	}
 	
-	public NganHang(String tenNganHang, String diaChi, List<ObserverKH> dSKhachHang, String thongBao,
+	private NganHang(String tenNganHang, String diaChi, List<ObserverKH> dSKhachHang, String thongBao,
 			List<HoaDon> dSHoaDon) {
 		super();
 		this.tenNganHang = tenNganHang;
@@ -50,13 +50,13 @@ public class NganHang implements Subject {
 	}
 	
 	
-	public NganHang() {
+	private NganHang() {
 		super();
 		dSKhachHang = new ArrayList<>();
 		dSHoaDon = new ArrayList<>();
 	}
 
-	public NganHang(String tenNganHang, String diaChi) {
+	private NganHang(String tenNganHang, String diaChi) {
 		this.tenNganHang = tenNganHang;
 		this.diaChi = diaChi;
 		this.dSKhachHang = new ArrayList<ObserverKH>();

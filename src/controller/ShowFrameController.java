@@ -36,7 +36,7 @@ public class ShowFrameController implements ActionListener{
 	GiaoDich chuyenTien = new ChuyenTien(0, null, null);
 	GuiTietKiem tk = new GuiTietKiem(0, 0, null);
 	VayNganHang vay = new VayNganHang(0, 0, null, null, null);
-	NganHang nganHang = new NganHang("Ngan Hang ABC", "24 Dang Thai Mai, Tay Ho, Ha Noi");
+	NganHang nganHang = NganHang.getInstance();
     public ShowFrameController(View view, ActionListener loginCon){
     	this.view = view;
     	this.loginController = (LoginController)  loginCon;
